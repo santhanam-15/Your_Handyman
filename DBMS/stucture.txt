@@ -1,0 +1,86 @@
+src/
+├── components/
+│   └── layout/
+│       ├── DashboardLayout.jsx
+│       └── Sidebar.jsx
+├── pages/
+│   ├── admin/
+│   │   ├── ProfilePage.jsx
+│   │   ├── ServiceManagementPage.jsx
+│   │   ├── StaffManagementPage.jsx
+│   │   ├── BookingManagementPage.jsx
+│   │   └── PaymentManagementPage.jsx
+│   ├── serviceProvider/
+│   │   ├── ProfilePage.jsx
+│   │   ├── JobsPage.jsx
+│   │   └── MyLogsPage.jsx
+│   |── customer/
+│   |   ├── ProfilePage.jsx
+│   |   ├── ServicesPage.jsx
+│   |   ├── MyBookingsPage.jsx
+│   |   └── MyLogsPage.jsx
+|   |---superadmin
+|   |
+|	|
+|	|
+└── constants/
+    └── navItems.js
+
+
+PS D:\I FILES\Studies\sem5\React\Handy\src> Get-ChildItem -Recurse | ForEach-Object { $_.FullName }
+D:\I FILES\Studies\sem5\React\Handy\src\assets
+D:\I FILES\Studies\sem5\React\Handy\src\components
+D:\I FILES\Studies\sem5\React\Handy\src\constants
+D:\I FILES\Studies\sem5\React\Handy\src\pages
+D:\I FILES\Studies\sem5\React\Handy\src\App.css
+D:\I FILES\Studies\sem5\React\Handy\src\App.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\dashboard.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\home.css
+D:\I FILES\Studies\sem5\React\Handy\src\home.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\index.css
+D:\I FILES\Studies\sem5\React\Handy\src\login.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\main.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\server.js
+D:\I FILES\Studies\sem5\React\Handy\src\assets\react.svg
+D:\I FILES\Studies\sem5\React\Handy\src\components\layout
+D:\I FILES\Studies\sem5\React\Handy\src\components\layout\DashboardLayout.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\components\layout\Sidebar.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\constants\navItems.js
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin
+D:\I FILES\Studies\sem5\React\Handy\src\pages\customer
+D:\I FILES\Studies\sem5\React\Handy\src\pages\serviceProvider
+D:\I FILES\Studies\sem5\React\Handy\src\pages\superadmin
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\admin.js
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\BookingManagementPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\PaymentManagementPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\ProfilePage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\ServiceManagementPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\StaffManagementPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\admin\UserManagementPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\customer\customer.js
+D:\I FILES\Studies\sem5\React\Handy\src\pages\customer\MyBookingsPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\customer\MyLogsPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\customer\ProfilePage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\customer\ServicePage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\serviceProvider\JobsPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\serviceProvider\MyLogsPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\serviceProvider\ProfilePage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\serviceProvider\serviceProvider.js
+D:\I FILES\Studies\sem5\React\Handy\src\pages\superadmin\ManageAdminPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\superadmin\ServiceManagementPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\superadmin\StatisticsPage.jsx
+D:\I FILES\Studies\sem5\React\Handy\src\pages\superadmin\superadmin.js
+PS D:\I FILES\Studies\sem5\React\Handy\src> Get-ChildItem -Recurse | Tree
+Folder PATH listing for volume Void
+Volume serial number is 7633-08E1
+D:.
+├───assets
+├───components
+│   └───layout
+├───constants
+└───pages
+    ├───admin
+    ├───customer
+    ├───serviceProvider
+    └───superadmin
+PS D:\I FILES\Studies\sem5\React\Handy\src>
