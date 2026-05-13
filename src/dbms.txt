@@ -1,0 +1,79 @@
+	CREATE TABLE users (
+		user_id INT PRIMARY KEY AUTO_INCREMENT,
+		name VARCHAR(255) NOT NULL,
+		email VARCHAR(255) UNIQUE,
+		password_hash VARCHAR(255) NOT NULL,
+		phone VARCHAR(20),
+		role ENUM('super_admin','admin', 'customer', 'service_provider') NOT NULL DEFAULT 'customer',
+		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);
+
+CREATE TABLE service_providers (
+    provider_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    skills TEXT,
+    experience_years INT,
+    rating DECIMAL(2,1),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    address TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE services (
+    service_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    category ENUM('Electrical','Plumbing','Carpentry','Painting','Cleaning','Appliance','HVAC','Washing'),
+    subcategory ENUM('Wiring','Switch & Socket','Lighting','Fan Installation','MCB/DB','Leak Repair','Pipe Install','Tap/Faucet','Clog/Cleaning','Water Heater','Furniture Assembly','Door/Window','Repair','Polish','Interior','Exterior','Touch-up','Home Deep Clean','Kitch...'),
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('Active','Inactive') DEFAULT 'Active'
+);
+
+CREATE TABLE provider_skills (
+    provider_skill_id INT PRIMARY KEY AUTO_INCREMENT,
+    provider_id INT NOT NULL,
+    service_id INT NOT NULL,
+    FOREIGN KEY (provider_id) REFERENCES service_providers(provider_id) ON DELETE CASCADE,
+    FOREIGN KEY (service_id) REFERENCES services(service_id) ON DELETE CASCADE
+);
+
+CREATE TABLE bookings (
+    booking_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    service_id INT NOT NULL,
+    booking_date DATETIME NOT NULL,
+    status ENUM('pending','confirmed','completed','cancelled') DEFAULT 'pending',
+    total_amount DECIMAL(10,2),
+    assigned_staff_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    priority ENUM('low','medium','high') DEFAULT 'medium',
+    notes TEXT
+);
+CREATE TABLE reviews (
+    review_id INT PRIMARY KEY AUTO_INCREMENT,
+    booking_id INT NOT NULL,
+    provider_id INT NOT NULL,
+    rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (booking_id) REFERENCES bookings(booking_id) ON DELETE CASCADE,
+    FOREIGN KEY (provider_id) REFERENCES service_providers(provider_id) ON DELETE CASCADE
+);
+
+CREATE TABLE payments (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    booking_id INT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    status ENUM('pending', 'completed', 'failed') DEFAULT 'pending',
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    transaction_id VARCHAR(100),
+    payment_method ENUM('Cash', 'Credit Card', 'Debit Card', 'UPI', 'Bank Transfer'),
+    FOREIGN KEY (booking_id) REFERENCES bookings(booking_id) ON DELETE CASCADE
+);
+	
